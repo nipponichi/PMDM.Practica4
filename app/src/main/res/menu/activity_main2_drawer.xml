@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_inicio"
+            android:icon="@drawable/ic_menu_inicio"
+            android:title="@string/menu_inicio" />
+        <item
+            android:id="@+id/nav_medicion"
+            android:icon="@drawable/ic_menu_medicion"
+            android:title="@string/menu_medicion" />
+        <item
+            android:id="@+id/nav_conversor"
+            android:icon="@drawable/ic_menu_conversor"
+            android:title="@string/menu_conversor" />
+        <item
+            android:id="@+id/nav_configuracion"
+            android:icon="@drawable/ic_menu_conf"
+            android:title="@string/menu_configuracion" />
+        <item
+            android:id="@+id/nav_cerrar"
+            android:icon="@drawable/ic_menu_cerrar"
+            android:title="@string/menu_cerrar" />
+    </group>
+</menu>

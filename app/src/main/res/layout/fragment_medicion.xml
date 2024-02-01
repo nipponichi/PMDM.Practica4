@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.medicion.MedicionFragment">
+
+    <ImageView
+        android:id="@+id/imageView3"
+        app:srcCompat="@drawable/logo_app_res"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/tvMedicionTemperatura" />
+
+    <TextView
+        android:id="@+id/tvMedicionTemperatura"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="@string/btnMedicion"
+        app:layout_constraintTop_toBottomOf="@id/imageView3"
+        app:layout_constraintBottom_toTopOf="@id/etNombre"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <EditText
+        android:text="Javier"
+        android:id="@+id/etNombre"
+        android:layout_width="270dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/nombre"
+        app:layout_constraintTop_toBottomOf="@id/tvMedicionTemperatura"
+        app:layout_constraintBottom_toTopOf="@id/etApellidos"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <EditText
+        android:text="Lopez"
+        android:id="@+id/etApellidos"
+        android:layout_width="270dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/apellidos"
+        app:layout_constraintTop_toBottomOf="@id/etNombre"
+        app:layout_constraintBottom_toTopOf="@id/etTemperatura"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <EditText
+        android:text="39"
+        android:id="@+id/etTemperatura"
+        android:layout_width="270dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/temperatura"
+        android:inputType="number"
+        app:layout_constraintTop_toBottomOf="@id/etApellidos"
+        app:layout_constraintBottom_toTopOf="@id/etPoblacion"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"  />
+
+    <EditText
+        android:text="Benferri"
+        android:id="@+id/etPoblacion"
+        android:layout_width="270dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/poblacion"
+        app:layout_constraintTop_toBottomOf="@id/etTemperatura"
+        app:layout_constraintBottom_toTopOf="@id/etProvincia"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <EditText
+        android:text="Alicante"
+        android:id="@+id/etProvincia"
+        android:layout_width="270dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/provincia"
+        app:layout_constraintTop_toBottomOf="@id/etPoblacion"
+        app:layout_constraintBottom_toTopOf="@+id/rgSelector"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"  />
+
+    <RadioGroup
+        android:id="@+id/rgSelector"
+        android:layout_width="270dp"
+        android:layout_height="100dp"
+        app:layout_constraintBottom_toTopOf="@+id/btnFinalizar"
+        app:layout_constraintTop_toBottomOf="@+id/etProvincia"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <RadioButton
+            android:id="@+id/rbCelsius"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/rbCelsius"
+            android:checked="true" />
+
+        <RadioButton
+            android:id="@+id/rbFahrenheit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/rbFahrenheit"
+            android:checked="false" />
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/btnFinalizar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Finalizar"
+        app:layout_constraintTop_toBottomOf="@id/rgSelector"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

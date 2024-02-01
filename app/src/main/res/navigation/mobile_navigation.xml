@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_inicio">
+
+    <fragment
+        android:id="@+id/nav_inicio"
+        android:name="com.pmdm.practica3.ui.inicio.InicioFragment"
+        android:label="@string/menu_inicio"
+        tools:layout="@layout/fragment_inicio" />
+
+    <fragment
+        android:id="@+id/nav_medicion"
+        android:name="com.pmdm.practica3.ui.medicion.MedicionFragment"
+        android:label="@string/menu_medicion"
+        tools:layout="@layout/fragment_medicion" />
+
+    <fragment
+        android:id="@+id/nav_conversor"
+        android:name="com.pmdm.practica3.ui.conversor.ConversorFragment"
+        android:label="@string/menu_conversor"
+        tools:layout="@layout/fragment_conversor" />
+
+    <fragment
+        android:id="@+id/nav_configuracion"
+        android:name="com.pmdm.practica3.ui.configuracion.ConfiguracionFragment"
+        android:label="@string/menu_configuracion"
+        tools:layout="@layout/fragment_configuracion" />
+
+    <fragment
+        android:id="@+id/nav_cerrar"
+        android:name="com.pmdm.practica3.ui.cerrar.CerrarFragment"
+        android:label="@string/menu_configuracion"
+        tools:layout="@layout/fragment_configuracion" />
+
+</navigation>
