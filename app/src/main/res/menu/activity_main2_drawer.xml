@@ -21,6 +21,10 @@
             android:icon="@drawable/ic_menu_conf"
             android:title="@string/menu_configuracion" />
         <item
+            android:id="@+id/nav_localizacion"
+            android:icon="@drawable/ic_menu_conf"
+            android:title="@string/menu_localizacion" />
+        <item
             android:id="@+id/nav_cerrar"
             android:icon="@drawable/ic_menu_cerrar"
             android:title="@string/menu_cerrar" />

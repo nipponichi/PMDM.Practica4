@@ -1,16 +1,12 @@
 package com.pmdm.practica3.viewmodel.login;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
 
 import com.pmdm.practica3.databinding.ViewLoginBinding;
 import com.pmdm.practica3.model.UsuarioModel;

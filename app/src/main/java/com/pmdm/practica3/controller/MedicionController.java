@@ -8,7 +8,6 @@ import android.widget.Toast;
 import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.toolbox.StringRequest;
-import com.pmdm.practica3.model.ClienteModel;
 import com.pmdm.practica3.viewmodel.resumen.ResumenActivity;
 
 import org.json.JSONException;

@@ -2,7 +2,6 @@ package com.pmdm.practica3.viewmodel.resumen;
 
 import android.content.Context;
 import android.util.Log;
-import android.view.View;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;

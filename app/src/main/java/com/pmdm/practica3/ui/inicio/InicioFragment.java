@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.pmdm.practica3.databinding.FragmentInicioBinding;
 import com.pmdm.practica3.model.ClienteModel;
 import com.pmdm.practica3.model.ClienteAdapter;
+import com.pmdm.practica3.ui.localizacion.LocalizacionFragment;
 
 import java.util.ArrayList;
 
@@ -21,7 +22,6 @@ public class InicioFragment extends Fragment {
     private FragmentInicioBinding binding;
     private ArrayList<ClienteModel> clienteModelList = new ArrayList<>();
     private ClienteAdapter mAdapter;
-
 
     /**
      * Creación de la vista del fragment
@@ -38,8 +38,7 @@ public class InicioFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         mAdapter = new ClienteAdapter(new ArrayList<>(), getContext());
-        InicioViewModel inicioViewModel =
-                new ViewModelProvider(this).get(InicioViewModel.class);
+        InicioViewModel inicioViewModel = new ViewModelProvider(this).get(InicioViewModel.class);
         inicioViewModel.setAdapter(mAdapter);
 
         binding = FragmentInicioBinding.inflate(inflater, container, false);
@@ -48,11 +47,18 @@ public class InicioFragment extends Fragment {
         // Obtiene el listado de clientes
         clienteModelList = inicioViewModel.doList(getContext());
 
+        // Guardamos el listado de clientes para usos en otros apartados
+        LocalizacionFragment localizacionFragment = new LocalizacionFragment();
+        Bundle clienteBundle = new Bundle();
+        clienteBundle.putParcelableArrayList("listaClientes", clienteModelList);
+        localizacionFragment.setArguments(clienteBundle);
+
+
         // Inicia el recyclerView
         RecyclerView recyclerView = binding.rvCliente;
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
-        //Añadimos el adaptador al recyclerView
+        // Añadimos el adaptador al recyclerView
         recyclerView.setAdapter(mAdapter);
 
         return root;
@@ -66,6 +72,9 @@ public class InicioFragment extends Fragment {
         super.onDestroyView();
         binding = null;
         mAdapter = null;
+    }
+    public ArrayList<ClienteModel> getClienteModelList() {
+        return clienteModelList;
     }
 
 }

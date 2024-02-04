@@ -4,19 +4,15 @@ import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
 
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
 import com.pmdm.practica3.MainMenu;
-import com.pmdm.practica3.R;
 import com.pmdm.practica3.databinding.ActivityResumenBinding;
 import com.pmdm.practica3.model.ClienteModel;
 

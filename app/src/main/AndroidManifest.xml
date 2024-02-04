@@ -2,6 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
 
     <application
         android:allowBackup="true"
@@ -12,27 +13,36 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:usesCleartextTraffic="true"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Practica3"
+        android:theme="@style/Theme.Practica3NoBar"
         tools:targetApi="31">
+
         <activity
             android:name=".MainMenu"
             android:exported="false"
             android:label="@string/app_name"
-            android:theme="@style/Theme.Practica3.NoActionBar" />
+            android:theme="@style/Theme.Practica3NoBar.NoActionBar" />
         <activity
             android:name=".viewmodel.resumen.ResumenActivity"
             android:exported="false"
-            android:theme="@style/Theme.Practica3.NoActionBar"/>
+            android:theme="@style/Theme.Practica3NoBar.NoActionBar"/>
+        <activity
+            android:name=".ui.localizacion.LocalizacionActivity"
+            android:exported="false"
+            android:theme="@style/Theme.Practica3Bar.ActionBar"/>
         <activity
             android:name=".viewmodel.login.LoginActivity"
-            android:exported="true">
+            android:exported="true"
+            android:theme="@style/Theme.Practica3NoBar.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER"
-                    android:theme="@style/Theme.Practica3.NoActionBar"/>
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyAz4lTqtyCWzyGF2SxjID2OAl-oHegMzIE"/>
+
     </application>
 
 </manifest>

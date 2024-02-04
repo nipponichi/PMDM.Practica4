@@ -1,32 +1,22 @@
 package com.pmdm.practica3.controller;
 
-import static java.security.AccessController.getContext;
-
 import android.content.Context;
-import android.content.Intent;
+import android.os.Bundle;
 import android.util.Log;
 import android.widget.Toast;
 
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
+import androidx.navigation.NavController;
 
 import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.toolbox.StringRequest;
-import com.pmdm.practica3.MainMenu;
-import com.pmdm.practica3.model.ClienteAdapter;
 import com.pmdm.practica3.model.ClienteModel;
-import com.pmdm.practica3.model.UsuarioModel;
-import com.pmdm.practica3.ui.inicio.InicioFragment;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 public class InicioController {
 
@@ -82,6 +72,7 @@ public class InicioController {
             Log.i("Nombre cliente", clienteModel.getNombre());
 
             clienteModelList.add(clienteModel);
+
         }
     }
 

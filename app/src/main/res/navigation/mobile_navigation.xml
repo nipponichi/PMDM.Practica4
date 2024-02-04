@@ -30,6 +30,12 @@
         tools:layout="@layout/fragment_configuracion" />
 
     <fragment
+        android:id="@+id/nav_localizacion"
+        android:name="com.pmdm.practica3.ui.localizacion.LocalizacionFragment"
+        android:label="@string/menu_localizacion"
+        tools:layout="@layout/fragment_localizacion" />
+
+    <fragment
         android:id="@+id/nav_cerrar"
         android:name="com.pmdm.practica3.ui.cerrar.CerrarFragment"
         android:label="@string/menu_configuracion"
