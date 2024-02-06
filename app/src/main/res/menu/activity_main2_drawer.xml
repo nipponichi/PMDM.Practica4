@@ -22,7 +22,7 @@
             android:title="@string/menu_configuracion" />
         <item
             android:id="@+id/nav_localizacion"
-            android:icon="@drawable/ic_menu_conf"
+            android:icon="@drawable/ic_menu_loc"
             android:title="@string/menu_localizacion" />
         <item
             android:id="@+id/nav_cerrar"

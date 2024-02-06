@@ -1,11 +1,9 @@
 package com.pmdm.practica3.controller;
 
+
 import android.content.Context;
-import android.os.Bundle;
 import android.util.Log;
 import android.widget.Toast;
-
-import androidx.navigation.NavController;
 
 import com.android.volley.Request;
 import com.android.volley.Response;
@@ -48,6 +46,7 @@ public class InicioController {
 
     /**
      * Creamos la lista de clientes
+     *
      * @param jsonArray
      * @throws JSONException
      */
@@ -72,7 +71,6 @@ public class InicioController {
             Log.i("Nombre cliente", clienteModel.getNombre());
 
             clienteModelList.add(clienteModel);
-
         }
     }
 

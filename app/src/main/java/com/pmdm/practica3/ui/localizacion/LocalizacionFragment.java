@@ -20,7 +20,6 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.pmdm.practica3.R;
 
-import com.pmdm.practica3.model.ClienteAdapter;
 import com.pmdm.practica3.model.ClienteModel;
 
 
@@ -35,6 +34,18 @@ public class LocalizacionFragment extends Fragment implements OnMapReadyCallback
 
     SupportMapFragment mapFragment = null;
 
+    /**
+     * Crea la vista del fragment Localizacion
+     *
+     * @param inflater           The LayoutInflater object that can be used to inflate
+     *                           any views in the fragment,
+     * @param container          If non-null, this is the parent view that the fragment's
+     *                           UI should be attached to.  The fragment should not add the view itself,
+     *                           but this can be used to generate the LayoutParams of the view.
+     * @param savedInstanceState If non-null, this fragment is being re-constructed
+     *                           from a previous saved state as given here.
+     * @return
+     */
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -49,34 +60,55 @@ public class LocalizacionFragment extends Fragment implements OnMapReadyCallback
         return root;
     }
 
+    /**
+     * Toma nombre y población de los clientes en el mapa.
+     *
+     * @param googleMap
+     */
     @Override
     public void onMapReady(@NonNull GoogleMap googleMap) {
         myMap = googleMap;
-        String ciudad;
+        String ciudad, nombre;
         Log.i("previo forEach", "creado");
 
         for (ClienteModel cliente : clienteModelList) {
             ciudad = cliente.getCiudad();
+            nombre = (cliente.getNombre() + " " + cliente.getApellidos());
             Log.i("Ciudad ", ciudad);
-            mapSignal(ciudad);
+            mapSignal(ciudad, nombre);
         }
     }
 
+    /**
+     * Obtiene la lista de clientes cargada
+     *
+     * @param clienteModelList
+     */
     @Override
     public void onListResponse(ArrayList<ClienteModel> clienteModelList) {
         this.clienteModelList = clienteModelList;
-        Log.i("listResponse", clienteModelList.get(0).getNombre());
         if (mapFragment != null) {
             mapFragment.getMapAsync(this);
         }
     }
 
+    /**
+     * Si la lista de clientes no se recibe, mostramos un mensaje de error por consola
+     *
+     * @param error
+     */
     @Override
     public void onError(String error) {
         Log.i("error", "error");
     }
 
-    public void mapSignal(String ciudad) {
+    /**
+     * Señala y etiqueta al cliente en el mapa
+     *
+     * @param ciudad
+     * @param nombre
+     */
+    public void mapSignal(String ciudad, String nombre) {
         List<Address> addressList = null;
 
         if (ciudad != null) {
@@ -91,7 +123,7 @@ public class LocalizacionFragment extends Fragment implements OnMapReadyCallback
 
         Address address = addressList.get(0);
         LatLng coordenadasCiudad = new LatLng(address.getLatitude(), address.getLongitude());
-        myMap.addMarker(new MarkerOptions().position(coordenadasCiudad).title(ciudad));
+        myMap.addMarker(new MarkerOptions().position(coordenadasCiudad).title(nombre));
         myMap.moveCamera(CameraUpdateFactory.newLatLng(coordenadasCiudad));
         myMap.moveCamera(CameraUpdateFactory.newLatLngZoom(coordenadasCiudad, 4));
     }

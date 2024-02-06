@@ -11,12 +11,13 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.pmdm.practica3.constants.Constants;
 import com.pmdm.practica3.controller.LoginController;
 import com.pmdm.practica3.model.UsuarioModel;
 
 public class LoginViewModel extends ViewModel {
 
-    private final String POST_URL = "http://192.168.2.136/webservice/app/auth.php";
+    private String postUrl = Constants.AUTH_PHP;
     private LoginController loginController = new LoginController();
 
     private Context context;
@@ -31,13 +32,14 @@ public class LoginViewModel extends ViewModel {
 
     /**
      * Envía solicitud de inicio de sesion para usuario
+     *
      * @param context
      * @param usuarioModel
      */
     public void doLogin(Context context, UsuarioModel usuarioModel) {
         this.context = context;
         this.usuarioModel = usuarioModel;
-        StringRequest stringRequest = loginController.LoginRequest(POST_URL,usuarioModel.getName(),
+        StringRequest stringRequest = loginController.LoginRequest(postUrl, usuarioModel.getName(),
                 usuarioModel.getPasswd(), responseListener, errorListener);
         RequestQueue queue = Volley.newRequestQueue(context);
         queue.add(stringRequest);
@@ -49,7 +51,7 @@ public class LoginViewModel extends ViewModel {
     Response.Listener<String> responseListener = new Response.Listener<String>() {
         @Override
         public void onResponse(String response) {
-            loginController.ControlarLoginResponse(response,context,usuarioModel);
+            loginController.ControlarLoginResponse(response, context, usuarioModel);
         }
     };
 

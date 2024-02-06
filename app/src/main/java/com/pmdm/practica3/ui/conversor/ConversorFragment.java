@@ -34,7 +34,7 @@ public class ConversorFragment extends Fragment {
     /**
      * Set variables de la vista con parámetros de clase
      */
-    private void setVariables(){
+    private void setVariables() {
         btnCalcular1 = binding.btnCalcular1;
         btnCalcular2 = binding.btnCalcular2;
         etCelsius1 = binding.etCelsius1;
@@ -58,7 +58,7 @@ public class ConversorFragment extends Fragment {
             try {
                 celsius = Double.parseDouble(celsiusStr);
             } catch (NumberFormatException e) {
-                Toast.makeText(getContext(),"Introduce un número", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), "Introduce un número", Toast.LENGTH_SHORT).show();
             }
             Double resultado = ((celsius * 9) / 5) + 32;
             Math.round(resultado);
@@ -78,7 +78,7 @@ public class ConversorFragment extends Fragment {
             try {
                 fahrenheit = Double.parseDouble(fahrenheitStr);
             } catch (NumberFormatException e) {
-                Toast.makeText(getContext(),"Introduce un número", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), "Introduce un número", Toast.LENGTH_SHORT).show();
             }
             Double resultado = ((fahrenheit - 32) * 5) / 9;
             Math.round(resultado);

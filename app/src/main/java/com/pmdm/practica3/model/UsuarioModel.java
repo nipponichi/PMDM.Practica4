@@ -3,16 +3,7 @@ package com.pmdm.practica3.model;
 import java.io.Serializable;
 
 public class UsuarioModel implements Serializable {
-    String name;
-    String passwd;
-    String email;
-
-    /**
-     * Constructor por defecto
-     */
-    public UsuarioModel() {
-
-    }
+    String name, passwd, email;
 
     /**
      * Constructor de Usuario

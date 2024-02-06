@@ -30,7 +30,7 @@ public class LocalizacionViewModel extends ViewModel {
 
     private ClienteAdapter mAdapter;
 
-    private ArrayList <ClienteModel> clienteModelList = new ArrayList<>();
+    private ArrayList<ClienteModel> clienteModelList = new ArrayList<>();
 
     private LocalizacionViewModelCallback callback;
 
@@ -48,6 +48,7 @@ public class LocalizacionViewModel extends ViewModel {
 
     /**
      * Se establece el adaptador
+     *
      * @param adapter
      */
     public void setAdapter(ClienteAdapter adapter) {
@@ -56,6 +57,7 @@ public class LocalizacionViewModel extends ViewModel {
 
     /**
      * Obtiene la lista de clientes
+     *
      * @param context
      * @return
      */
@@ -70,6 +72,7 @@ public class LocalizacionViewModel extends ViewModel {
 
     /**
      * Devuelve la solicitud creada
+     *
      * @param getUrl
      * @param responseListener
      * @param errorListener
@@ -104,6 +107,7 @@ public class LocalizacionViewModel extends ViewModel {
 
     /**
      * Creamos la lista de clientes
+     *
      * @param jsonArray
      * @throws JSONException
      */
@@ -132,6 +136,7 @@ public class LocalizacionViewModel extends ViewModel {
         }
         return clienteModelList;
     }
+
     /**
      * Listener para respuesta esperada
      */
@@ -165,6 +170,7 @@ public class LocalizacionViewModel extends ViewModel {
      */
     public interface LocalizacionViewModelCallback {
         void onListResponse(ArrayList<ClienteModel> clienteModelList);
+
         void onError(String error);
     }
 }

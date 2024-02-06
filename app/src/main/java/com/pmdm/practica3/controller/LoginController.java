@@ -24,7 +24,7 @@ public class LoginController {
                                       Response.Listener<String> responseListener, Response.ErrorListener errorListener) {
         // Almacena los parámetros de usuario
         Map<String, String> params = new HashMap<>();
-        Log.i("user/passwd StringRequest", user +"/" + password);
+        Log.i("user/passwd StringRequest", user + "/" + password);
         params.put("user", user);
         params.put("passwd", password);
 
@@ -46,6 +46,7 @@ public class LoginController {
             if (success) {
                 Toast.makeText(context, "Entrando al sistema...", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(context, MainMenu.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 intent.putExtra("UsuarioModel", usuarioModel);
                 context.startActivity(intent);
             } else {

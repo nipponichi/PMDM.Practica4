@@ -1,23 +1,21 @@
 package com.pmdm.practica3.model;
 
-import static android.content.Context.MODE_PRIVATE;
-
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
-import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
 import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
-
 import com.pmdm.practica3.R;
 import com.pmdm.practica3.ui.localizacion.LocalizacionActivity;
+import com.pmdm.practica3.viewmodel.resumen.ResumenActivity;
 
 import java.util.ArrayList;
 
@@ -123,14 +121,13 @@ public class ClienteAdapter extends RecyclerView.Adapter<ClienteAdapter.ViewHold
             temperatura.setText(String.valueOf(temp));
             poblacion.setText(clienteModel.getCiudad());
 
-            // Establece una función de click para ir a vista resumen con el cliente seleccionado
+            // Establece una función de click para ir a vista localización con el cliente seleccionado
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Log.i("onclick", "clicado");
-
                     Intent intent = new Intent(context, LocalizacionActivity.class);
-                    intent.putExtra("ciudad", String.valueOf(clienteModel.getCiudad()));
+                    intent.putExtra("ciudad", clienteModel.getCiudad());
+                    intent.putExtra("nombre", clienteModel.getNombre() + " " + clienteModel.getApellidos());
                     intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                     context.startActivity(intent);
                 }
@@ -155,7 +152,7 @@ public class ClienteAdapter extends RecyclerView.Adapter<ClienteAdapter.ViewHold
 
     // Obtiene el formato de temperatura guardado en SharedPreferences
     private int getSavedFormat() {
-        SharedPreferences sharedPref = context.getSharedPreferences("Configuracion", MODE_PRIVATE);
+        SharedPreferences sharedPref = context.getSharedPreferences("Configuracion", Context.MODE_PRIVATE);
         boolean celsiusActivo = sharedPref.getBoolean("celsiusActivo", true);
         Log.i("CelsiusActivo", String.valueOf(celsiusActivo));
         if (celsiusActivo) {

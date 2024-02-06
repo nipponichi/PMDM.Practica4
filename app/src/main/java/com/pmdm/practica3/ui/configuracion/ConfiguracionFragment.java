@@ -16,6 +16,8 @@ import androidx.fragment.app.Fragment;
 
 import com.pmdm.practica3.MainMenu;
 import com.pmdm.practica3.databinding.FragmentConfiguracionBinding;
+import com.pmdm.practica3.model.UsuarioModel;
+import com.pmdm.practica3.sharedPreferences.SharedConstants;
 
 public class ConfiguracionFragment extends Fragment {
 
@@ -23,6 +25,8 @@ public class ConfiguracionFragment extends Fragment {
 
     boolean celsius;
     private Switch swCelsius, swFahrenheit;
+
+    private String usuario, passwd;
 
 
     private FragmentConfiguracionBinding binding;
@@ -69,9 +73,35 @@ public class ConfiguracionFragment extends Fragment {
         @Override
         public void onClick(View view) {
             Intent intent = new Intent(getContext(), MainMenu.class);
+
+            UsuarioModel usuarioModel;
+            usuarioModel = checkParametros();
+            intent.putExtra("UsuarioModel", usuarioModel);
             startActivity(intent);
         }
     };
+
+    /**
+     * Añade los valores del usuario
+     *
+     * @return
+     */
+    public UsuarioModel checkParametros() {
+        UsuarioModel usuarioModel;
+        SharedPreferences shared = getActivity().getSharedPreferences(SharedConstants.PREF_NAME, Context.MODE_PRIVATE);
+        usuario = shared.getString(SharedConstants.KEY_USER, "");
+        passwd = shared.getString(SharedConstants.KEY_PASSWD, "");
+
+        if (usuario == "" || passwd == "") {
+            usuario = "default";
+            passwd = "default";
+            usuarioModel = new UsuarioModel(usuario, passwd);
+        } else {
+            usuarioModel = new UsuarioModel(usuario, passwd);
+        }
+
+        return usuarioModel;
+    }
 
     /**
      * Al menos un Switch debe estar activo

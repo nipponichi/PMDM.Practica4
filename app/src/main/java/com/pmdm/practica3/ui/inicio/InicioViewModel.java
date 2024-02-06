@@ -10,6 +10,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.pmdm.practica3.constants.Constants;
 import com.pmdm.practica3.controller.InicioController;
 import com.pmdm.practica3.model.ClienteAdapter;
 import com.pmdm.practica3.model.ClienteModel;
@@ -18,7 +19,7 @@ import java.util.ArrayList;
 
 public class InicioViewModel extends ViewModel {
 
-    private final String GET_URL = "http://192.168.2.136/webservice/app/list.php";
+    private final String getUrl = Constants.LIST_PHP;
     private InicioController inicioController = new InicioController();
 
     private Context context;
@@ -34,6 +35,7 @@ public class InicioViewModel extends ViewModel {
 
     /**
      * Se establece el adaptador
+     *
      * @param adapter
      */
     public void setAdapter(ClienteAdapter adapter) {
@@ -42,6 +44,7 @@ public class InicioViewModel extends ViewModel {
 
     /**
      * Obtiene la lista de clientes
+     *
      * @param context
      * @return
      */
@@ -49,7 +52,7 @@ public class InicioViewModel extends ViewModel {
         this.context = context;
 
         //Se realiza la solicitud con Volley
-        StringRequest stringRequest = inicioController.ListRequest(GET_URL, responseListener, errorListener);
+        StringRequest stringRequest = inicioController.ListRequest(getUrl, responseListener, errorListener);
         RequestQueue queue = Volley.newRequestQueue(context);
         queue.add(stringRequest);
 
@@ -63,7 +66,7 @@ public class InicioViewModel extends ViewModel {
         @Override
         public void onResponse(String response) {
             // Procesa la respuesta y actualiza el adaptador
-            inicioController.ControlarListResponse(response,context);
+            inicioController.ControlarListResponse(response, context);
             mAdapter.updateData(inicioController.getClienteModelList());
         }
     };
